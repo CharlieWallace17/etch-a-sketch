@@ -15,8 +15,9 @@
 .blank {
     background-color: white;
     border: 1px solid black;
-    height: 100%;
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
+}
+
+.mark {
+    background-color: black;
+    border: 1px solid black;
 }
