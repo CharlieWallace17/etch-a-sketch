@@ -63,7 +63,7 @@ rnbw.addEventListener('click', () => {
     document.querySelectorAll('.blank', '.mark').forEach(item => {
         
         item.addEventListener('mouseover', () => {
-            const randomColor = Math.floor(Math.random()*16777215).toString(16);
+            let randomColor = Math.floor(Math.random()*16777215).toString(16);
             randomColor;
             item.classList.add('colors');
             item.classList.remove('blank', 'mark');
