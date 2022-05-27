@@ -1,6 +1,7 @@
 const container = document.querySelector('.container');
 const pix = document.querySelector('.pixels');
 const clr = document.querySelector('.erase');
+const rnbw = document.querySelector('.rainbow');
 
 let contSize = 400;
 let gridLength = 16;
@@ -25,9 +26,10 @@ function removeAllChildNodes(parent) {
 }
 
 function erase() {
-    document.querySelectorAll('.mark').forEach(item => {
+    document.querySelectorAll('.mark, .colors, .blank').forEach(item => {
             item.classList.add('blank');
-            item.classList.remove('mark');
+            item.classList.remove('mark', 'colors');
+            item.style.backgroundColor = 'white';
     })
 }
 
@@ -56,5 +58,18 @@ document.querySelectorAll('.blank').forEach(item => {
         item.classList.remove('blank');
     })
 })
+
+rnbw.addEventListener('click', () => {
+    document.querySelectorAll('.blank', '.mark').forEach(item => {
+        
+        item.addEventListener('mouseover', () => {
+            const randomColor = Math.floor(Math.random()*16777215).toString(16);
+            randomColor;
+            item.classList.add('colors');
+            item.classList.remove('blank', 'mark');
+            item.style.backgroundColor = "#" + randomColor;
+        })
+    })
+});
 
 clr.addEventListener('click', () => erase());
